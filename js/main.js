@@ -17,3 +17,81 @@ function listFilter() {
         }
     }
 }
+
+
+function loadIndex() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var dataObj = JSON.parse(this.responseText);
+            var i = 0;
+            titles = dataObj["Title"];
+            writers = dataObj["Writer"];
+            HTMLcontent = "";
+            while (typeof titles[i] !== "undefined") {
+                HTMLcontent +=
+                    '<li class="collection-item"><a href="/?q=' + i + '">' + titles[i] + '-' + writers[i] + '</a></li>';
+                i++;
+            }
+            document.getElementById("poemlist").innerHTML += HTMLcontent;
+        }
+    };
+    xhttp.open("GET", "data/data.json", true);
+    xhttp.send();
+}
+
+function loadBlogs() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var dataObj = JSON.parse(this.responseText);
+            var i = 0;
+            titles = dataObj["Title"];
+            writers = dataObj["Writer"];
+            poems = dataObj["Poem"];
+            HTMLcontent = "";
+            while (typeof titles[i] !== "undefined") {
+                HTMLcontent +=
+                    '<div class="contents w3-padding w3-margin">' +
+                    '<h1>' + titles[i] + '</h1>' +
+                    '<h5>' + writers[i] + '</h5>' +
+                    '<p>' + poems[i] + '</p>' +
+                    '</div>';
+                i++;
+            }
+            document.getElementsByClassName("contents-container")[0].innerHTML += HTMLcontent;
+        }
+    };
+    xhttp.open("GET", "data/data.json", true);
+    xhttp.send();
+}
+
+function loadPoem(q) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var dataObj = JSON.parse(this.responseText);
+            titles = dataObj["Title"];
+            writers = dataObj["Writer"];
+            poems = dataObj["Poem"];
+            HTMLcontent =
+                '<div class="contents w3-padding w3-margin">' +
+                '<h1>' + titles[q] + '</h1>' +
+                '<h5>' + writers[q] + '</h5>' +
+                '<p>' + poems[q] + '</p>' +
+                '</div>';
+            document.getElementsByClassName("contents-container")[0].innerHTML = HTMLcontent;
+        }
+    };
+    xhttp.open("GET", "data/data.json", true);
+    xhttp.send();
+}
+
+loadIndex()
+var params = new URLSearchParams(location.search);
+var q = params.get('q')
+if (q == null) {
+    loadBlogs()
+} else {
+    loadPoem(q)
+}

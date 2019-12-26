@@ -36,6 +36,15 @@ main>div>div {
     max-width: 550px;
 }
 
+.contents h1,
+p {
+    text-align: center;
+}
+
+.contents h5 {
+    text-align: right;
+}
+
 @media only screen and (max-width: 600px) {
     .contents-wrapper {
         border-bottom: 1px solid black;
@@ -61,13 +70,7 @@ main>div>div {
 
 #poemlist li a {
     text-decoration: none;
-    font-size: 18px;
-    color: black;
     display: block;
-}
-
-#poemlist li a:hover:not(.header) {
-    background-color: #eee;
 }
 
 ::-webkit-scrollbar {
