@@ -1,0 +1,87 @@
+header {
+    width: 90%;
+    /* height: 40vh; */
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 3%;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    text-align: center;
+}
+
+.jumbo {
+    font-size: 10vw;
+}
+
+main {
+    margin: 5%;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+
+main>div>div {
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.contents-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.contents {
+    flex: 0 0 auto;
+    border: 1px solid black;
+    max-width: 550px;
+}
+
+@media only screen and (max-width: 600px) {
+    .contents-wrapper {
+        border-bottom: 1px solid black;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .contents-wrapper {
+        border-right: 1px solid black;
+    }
+}
+
+#searchbox {
+    width: 100%;
+    font-size: 16px;
+}
+
+#poemlist {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#poemlist li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block;
+}
+
+#poemlist li a:hover:not(.header) {
+    background-color: #eee;
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #000;
+}
