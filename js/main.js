@@ -1,3 +1,5 @@
+BASE_URL = "https://word-of-rhymes.surge.sh/"
+
 function listFilter() {
     // Declare variables
     var input, filter, ul, li, a, i, txtValue;
@@ -40,6 +42,31 @@ function loadIndex() {
     xhttp.send();
 }
 
+function generateContent(t, w, p, i) {
+    return '<div class="contents w3-padding w3-margin w3-display-container">' +
+        '<h1>' + t + '</h1> <hr>' +
+        '<h5>' + w + '</h5>' +
+        '<p>' + p + '</p>' +
+        '<div class="share-links w3-margin w3-display-bottomright">' +
+        '<a target="_blank" data-action="share/whatsapp/share" href="whatsapp://send?text=' + BASE_URL + '?q=' + i + '">' +
+        '<ion-icon name="logo-whatsapp"></ion-icon>' +
+        '</a>' +
+        '<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=' + BASE_URL + '?q=' + i + '">' +
+        '<ion-icon name="logo-facebook"></ion-icon>' +
+        '</a>' +
+        '<a target="_blank" href="https://twitter.com/share?url=' + BASE_URL + '?q=' + i + '">' +
+        '<ion-icon name="logo-twitter"></ion-icon>' +
+        '</a>' +
+        '<a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=' + BASE_URL + '?q=' + i + '">' +
+        '<ion-icon name="logo-linkedin"></ion-icon>' +
+        '</a>' +
+        '<a target="_blank" href="http://www.reddit.com/submit?url=' + BASE_URL + '?q=' + i + '">' +
+        '<ion-icon name="logo-reddit"></ion-icon>' +
+        '</a>' +
+        '</div>' +
+        '</div>';
+}
+
 function loadBlogs() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -51,12 +78,7 @@ function loadBlogs() {
             poems = dataObj["Poem"];
             HTMLcontent = "";
             while (typeof titles[i] !== "undefined") {
-                HTMLcontent +=
-                    '<div class="contents w3-padding w3-margin">' +
-                    '<h1>' + titles[i] + '</h1>' +
-                    '<h5>' + writers[i] + '</h5>' +
-                    '<p>' + poems[i] + '</p>' +
-                    '</div>';
+                HTMLcontent += generateContent(titles[i], writers[i], poems[i], i)
                 i++;
             }
             document.getElementsByClassName("contents-container")[0].innerHTML += HTMLcontent;
@@ -74,12 +96,7 @@ function loadPoem(q) {
             titles = dataObj["Title"];
             writers = dataObj["Writer"];
             poems = dataObj["Poem"];
-            HTMLcontent =
-                '<div class="contents w3-padding w3-margin">' +
-                '<h1>' + titles[q] + '</h1>' +
-                '<h5>' + writers[q] + '</h5>' +
-                '<p>' + poems[q] + '</p>' +
-                '</div>';
+            HTMLcontent = generateContent(titles[q], writers[q], poems[q], q)
             document.getElementsByClassName("contents-container")[0].innerHTML = HTMLcontent;
         }
     };

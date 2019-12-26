@@ -33,7 +33,7 @@ main>div>div {
 .contents {
     flex: 0 0 auto;
     border: 1px solid black;
-    max-width: 550px;
+    max-width: 125%;
 }
 
 .contents h1,
@@ -43,6 +43,10 @@ p {
 
 .contents h5 {
     text-align: right;
+}
+
+.contents p {
+    margin-bottom: 50px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -87,4 +91,12 @@ p {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #000;
+}
+
+.share-links ion-icon {
+    font-size: 25px;
+}
+
+.share-links a:hover {
+    color: darkgray;
 }
