@@ -1,11 +1,11 @@
-BASE_URL = "https://word-of-rhymes.surge.sh/"
+BASE_URL = "https://why5.surge.sh/"
 
 function listFilter() {
     // Declare variables
     var input, filter, ul, li, a, i, txtValue;
     input = document.getElementById('searchbox');
     filter = input.value.toUpperCase();
-    ul = document.getElementById("poemlist");
+    ul = document.getElementById("postlist");
     li = ul.getElementsByTagName('li');
 
     // Loop through all list items, and hide those who don't match the search query
@@ -27,26 +27,24 @@ function loadIndex() {
         if (this.readyState == 4 && this.status == 200) {
             var dataObj = JSON.parse(this.responseText);
             var i = 0;
-            titles = dataObj["Title"];
-            writers = dataObj["Writer"];
+            title = dataObj["Title"];
             HTMLcontent = "";
             while (typeof titles[i] !== "undefined") {
                 HTMLcontent +=
-                    '<li class="collection-item"><a href="/?q=' + i + '">' + titles[i] + '-' + writers[i] + '</a></li>';
+                    '<li class="collection-item"><a href="/?q=' + i + '">' + title[i] + '</a></li>';
                 i++;
             }
-            document.getElementById("poemlist").innerHTML += HTMLcontent;
+            document.getElementById("postlist").innerHTML += HTMLcontent;
         }
     };
     xhttp.open("GET", "data/data.json", true);
     xhttp.send();
 }
 
-function generateContent(t, w, p, i) {
+function generateContent(t, a, i) {
     return '<div class="contents w3-padding w3-margin w3-display-container">' +
         '<h1>' + t + '</h1> <hr>' +
-        '<h5>' + w + '</h5>' +
-        '<p>' + p + '</p>' +
+        '<p>' + a + '</p>' +
         '<div class="share-links w3-margin w3-display-bottomright">' +
         '<a target="_blank" data-action="share/whatsapp/share" href="whatsapp://send?text=' + BASE_URL + '?q=' + i + '">' +
         '<ion-icon name="logo-whatsapp"></ion-icon>' +
@@ -74,11 +72,10 @@ function loadBlogs() {
             var dataObj = JSON.parse(this.responseText);
             var i = 0;
             titles = dataObj["Title"];
-            writers = dataObj["Writer"];
-            poems = dataObj["Poem"];
+            articles = dataObj["Article"];
             HTMLcontent = "";
             while (typeof titles[i] !== "undefined") {
-                HTMLcontent += generateContent(titles[i], writers[i], poems[i], i)
+                HTMLcontent += generateContent(titles[i], articles[i], i)
                 i++;
             }
             document.getElementsByClassName("contents-container")[0].innerHTML += HTMLcontent;
@@ -88,15 +85,14 @@ function loadBlogs() {
     xhttp.send();
 }
 
-function loadPoem(q) {
+function loadPost(q) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var dataObj = JSON.parse(this.responseText);
             titles = dataObj["Title"];
-            writers = dataObj["Writer"];
-            poems = dataObj["Poem"];
-            HTMLcontent = generateContent(titles[q], writers[q], poems[q], q)
+            articles = dataObj["Article"];
+            HTMLcontent = generateContent(titles[q], articles[q], q)
             document.getElementsByClassName("contents-container")[0].innerHTML = HTMLcontent;
         }
     };
@@ -110,5 +106,5 @@ var q = params.get('q')
 if (q == null) {
     loadBlogs()
 } else {
-    loadPoem(q)
+    loadPost(q)
 }
