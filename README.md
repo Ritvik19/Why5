@@ -1,3 +1,3 @@
-# Word-of-Rhymes
+# Why 5
 
-A simple blog website
+Answers to What? Who? Where? When? Why? and How?
