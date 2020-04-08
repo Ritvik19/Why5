@@ -1,11 +1,10 @@
 header {
     width: 90%;
-    /* height: 40vh; */
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 3%;
-    border-bottom: 1px solid black;
-    border-top: 1px solid black;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
     text-align: center;
 }
 
@@ -14,9 +13,11 @@ header {
 }
 
 main {
-    margin: 5%;
-    border-bottom: 1px solid black;
-    border-top: 1px solid black;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
 }
 
 main>div>div {
@@ -24,40 +25,29 @@ main>div>div {
     margin-bottom: 3%;
 }
 
-.contents-container {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-}
-
 .contents {
-    flex: 0 0 auto;
-    border: 1px solid black;
+    border: 2px solid black;
     max-width: 125%;
 }
 
-.contents h1,
-p {
+.contents h1 {
     text-align: center;
-}
-
-.contents h5 {
-    text-align: right;
 }
 
 .contents p {
     margin-bottom: 50px;
+    text-align: justify;
 }
 
 @media only screen and (max-width: 600px) {
     .contents-wrapper {
-        border-bottom: 1px solid black;
+        border-bottom: 2px solid black;
     }
 }
 
 @media only screen and (min-width: 600px) {
     .contents-wrapper {
-        border-right: 1px solid black;
+        border-right: 2px solid black;
     }
 }
 

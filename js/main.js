@@ -27,11 +27,12 @@ function loadIndex() {
         if (this.readyState == 4 && this.status == 200) {
             var dataObj = JSON.parse(this.responseText);
             var i = 0;
-            title = dataObj["Title"];
+            titles = dataObj["Title"];
+            hash = dataObj["Hash"];
             HTMLcontent = "";
             while (typeof titles[i] !== "undefined") {
                 HTMLcontent +=
-                    '<li class="collection-item"><a href="/?q=' + i + '">' + title[i] + '</a></li>';
+                    '<li class="collection-item"><a href="/?q=' + hash[i] + '">' + titles[i] + '</a></li>';
                 i++;
             }
             document.getElementById("postlist").innerHTML += HTMLcontent;
@@ -44,7 +45,7 @@ function loadIndex() {
 function generateContent(t, a, i) {
     return '<div class="contents w3-padding w3-margin w3-display-container">' +
         '<h1>' + t + '</h1> <hr>' +
-        '<p>' + a + '</p>' +
+        '<p class="w3-padding">' + a + '</p>' +
         '<div class="share-links w3-margin w3-display-bottomright">' +
         '<a target="_blank" data-action="share/whatsapp/share" href="whatsapp://send?text=' + BASE_URL + '?q=' + i + '">' +
         '<ion-icon name="logo-whatsapp"></ion-icon>' +
@@ -73,9 +74,10 @@ function loadBlogs() {
             var i = 0;
             titles = dataObj["Title"];
             articles = dataObj["Article"];
+            hash = dataObj['Hash'];
             HTMLcontent = "";
             while (typeof titles[i] !== "undefined") {
-                HTMLcontent += generateContent(titles[i], articles[i], i)
+                HTMLcontent += generateContent(titles[i], articles[i], hash[i])
                 i++;
             }
             document.getElementsByClassName("contents-container")[0].innerHTML += HTMLcontent;
@@ -92,7 +94,15 @@ function loadPost(q) {
             var dataObj = JSON.parse(this.responseText);
             titles = dataObj["Title"];
             articles = dataObj["Article"];
-            HTMLcontent = generateContent(titles[q], articles[q], q)
+            hash = dataObj['Hash'];
+            i = 0;
+            while (typeof titles[i] !== "undefined") {
+                if (hash[i] == q) {
+                    break
+                }
+                i++;
+            }
+            HTMLcontent = generateContent(titles[i], articles[i], hash[i])
             document.getElementsByClassName("contents-container")[0].innerHTML = HTMLcontent;
         }
     };

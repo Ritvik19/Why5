@@ -1,8 +1,14 @@
 {
     "Title": {
-        "0": "Crocodile Tears"
+        "0": "Crocodile Tears",
+        "1": "Marathon Messenger"
     },
     "Article": {
-        "0": "Crocodile shed tears not because they are sad. It is a bodily need for them! Tears are a means to get rid of excess salt from its body. There was a belief that crocodiles wept while catching a pry. Thus the phrase crocodile tears came to mean someone who shed false tears."
+        "0": "Crocodile shed tears not because they are sad. It is a bodily need for them! Tears are a means to get rid of excess salt from its body. There was a belief that crocodiles wept while catching a pry. Thus the phrase crocodile tears came to mean someone who shed false tears.",
+        "1": "In 490 B.C., the Athenian army defeated the invading Persian army in a battle in the plain of Marathon, located roughly 26 miles north of Athens. According to legend, the Athenians then ordered the messenger Pheidippides to run ahead to Athens and announce the victory to the city. <br><br>\nPheidippides raced back to the city in intense late summer heat. Upon reaching the Athenian agora, he exclaimed “Nike!” (“Victory!”) or “Rejoice! We Conquer” and then collapsed dead from exhaustion. <br><br>\nDuring plans for the 1896 Olympics, the first modern Games, organizers wanted an event to celebrate Greek history. French historian Michel Breal suggested a long-distance race from Marathon to Athens to honor Pheidippides’ run. Greek runner Spiridon Louis won the race—winning Greece’s only gold medal of the Games—and the local excitement over the race ensured that it would be included in later Games. <br><br>\nThe first marathon was 39.9 kilometers (24.8 miles), according to the Boston Athletic Association, but the distance was changed to 42.195 kilometers (26.2 miles) at the 1908 London Olympics. It was based not on the distance from Marathon to Athens, but rather the distance from Windsor Castle to London’s Olympic Stadium, the route of the 1908 marathon."
+    },
+    "Hash": {
+        "0": "-7323989951189397239",
+        "1": "588474187802370818"
     }
 }
