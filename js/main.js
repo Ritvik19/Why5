@@ -80,7 +80,7 @@ function loadBlogs() {
                 HTMLcontent += generateContent(titles[i], articles[i], hash[i])
                 i++;
             }
-            document.getElementsByClassName("contents-container")[0].innerHTML += HTMLcontent;
+            document.getElementsByClassName("contents-container")[1].innerHTML += HTMLcontent;
         }
     };
     xhttp.open("GET", "data/data.json", true);
@@ -103,7 +103,7 @@ function loadPost(q) {
                 i++;
             }
             HTMLcontent = generateContent(titles[i], articles[i], hash[i])
-            document.getElementsByClassName("contents-container")[0].innerHTML = HTMLcontent;
+            document.getElementsByClassName("contents-container")[1].innerHTML = HTMLcontent;
         }
     };
     xhttp.open("GET", "data/data.json", true);
@@ -114,7 +114,7 @@ loadIndex()
 var params = new URLSearchParams(location.search);
 var q = params.get('q')
 if (q == null) {
-    loadBlogs()
+    // loadBlogs()
 } else {
     loadPost(q)
 }

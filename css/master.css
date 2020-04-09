@@ -10,12 +10,16 @@ header {
 
 .jumbo {
     font-size: 10vw;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    padding-left: 30%;
+    padding-right: 30%;
 }
 
 main {
     margin-left: 5%;
     margin-right: 5%;
-    margin-bottom: 5%;
+    /* margin-bottom: 5%; */
     border-bottom: 2px solid black;
     border-top: 2px solid black;
 }
@@ -56,19 +60,46 @@ main>div>div {
     font-size: 16px;
 }
 
-#poemlist {
+#postlist {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    max-height: 480px;
 }
 
-#poemlist li a {
+#postlist li a {
     text-decoration: none;
     display: block;
 }
 
+.contents img {
+    width: 100%;
+    height: auto;
+}
+
+.collection,
+.collection-item {
+    border-color: black !important;
+}
+
+::placeholder {
+    color: black;
+}
+
 ::-webkit-scrollbar {
-    display: none;
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 .share-links ion-icon {
@@ -77,4 +108,25 @@ main>div>div {
 
 .share-links a:hover {
     color: darkgray;
+}
+
+.about q {
+    text-align: center;
+    display: block;
+    margin: auto;
+}
+
+footer {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 3%;
+}
+
+footer div {
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+
+a:hover {
+    text-decoration: underline !important;
 }
