@@ -44,7 +44,7 @@ function loadIndex() {
 
 function generateContent(t, a, i) {
     return '<div class="contents w3-padding w3-margin w3-display-container">' +
-        '<h1>' + t + '</h1> <hr>' +
+        '<h1 class="w3-padding-large">' + t + '</h1>' +
         '<p class="w3-padding">' + a + '</p>' +
         '<div class="share-links w3-margin w3-display-bottomright">' +
         '<a target="_blank" data-action="share/whatsapp/share" href="whatsapp://send?text=' + BASE_URL + '?q=' + i + '">' +

@@ -1,17 +1,40 @@
+@media (prefers-color-scheme: dark) {
+     :root {
+        --c1: #202040;
+        --c2: #543864;
+        --c3: #ff6363;
+        --c4: #ffbd69;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+     :root {
+        --c1: #f4f4f4;
+        --c2: #8ec6c5;
+        --c3: #6983aa;
+        --c4: #8566aa;
+    }
+}
+
+body {
+    background-color: var(--c1);
+    color: var(--c4);
+}
+
 header {
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 3%;
-    border-bottom: 2px solid black;
-    border-top: 2px solid black;
+    border-bottom: 2px solid var(--c3);
+    border-top: 2px solid var(--c3);
     text-align: center;
 }
 
 .jumbo {
     font-size: 10vw;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
+    border-left: 2px solid var(--c3);
+    border-right: 2px solid var(--c3);
     padding-left: 30%;
     padding-right: 30%;
 }
@@ -20,8 +43,8 @@ main {
     margin-left: 5%;
     margin-right: 5%;
     /* margin-bottom: 5%; */
-    border-bottom: 2px solid black;
-    border-top: 2px solid black;
+    border-bottom: 2px solid var(--c3);
+    border-top: 2px solid var(--c3);
 }
 
 main>div>div {
@@ -30,12 +53,13 @@ main>div>div {
 }
 
 .contents {
-    border: 2px solid black;
+    border: 2px solid var(--c3);
     max-width: 125%;
 }
 
 .contents h1 {
     text-align: center;
+    border-bottom: 2px solid var(--c3);
 }
 
 .contents p {
@@ -45,13 +69,13 @@ main>div>div {
 
 @media only screen and (max-width: 600px) {
     .contents-wrapper {
-        border-bottom: 2px solid black;
+        border-bottom: 2px solid var(--c3);
     }
 }
 
 @media only screen and (min-width: 600px) {
     .contents-wrapper {
-        border-right: 2px solid black;
+        border-right: 2px solid var(--c3);
     }
 }
 
@@ -65,6 +89,7 @@ main>div>div {
     padding: 0;
     margin: 0;
     max-height: 480px;
+    overflow-y: scroll;
 }
 
 #postlist li a {
@@ -79,11 +104,12 @@ main>div>div {
 
 .collection,
 .collection-item {
-    border-color: black !important;
+    border-color: var(--c3) !important;
+    background-color: var(--c1) !important;
 }
 
 ::placeholder {
-    color: black;
+    color: var(--c3);
 }
 
 ::-webkit-scrollbar {
@@ -91,15 +117,15 @@ main>div>div {
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: var(--c2);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #888;
+    background: var(--c4);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: var(--c3);
 }
 
 .share-links ion-icon {
@@ -123,8 +149,8 @@ footer {
 }
 
 footer div {
-    border-left: 2px solid black;
-    border-right: 2px solid black;
+    border-left: 2px solid var(--c3);
+    border-right: 2px solid var(--c3);
 }
 
 a:hover {
@@ -133,4 +159,8 @@ a:hover {
 
 .contents-container {
     min-height: 540px;
+}
+
+.tag {
+    color: var(--c3);
 }
