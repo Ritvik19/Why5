@@ -66,47 +66,37 @@ function generateContent(t, a, i) {
         '</div>';
 }
 
-function loadBlogs() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            var dataObj = JSON.parse(this.responseText);
-            var i = 0;
-            titles = dataObj["Title"];
-            articles = dataObj["Article"];
-            hash = dataObj['Hash'];
-            HTMLcontent = "";
-            while (typeof titles[i] !== "undefined") {
-                HTMLcontent += generateContent(titles[i], articles[i], hash[i])
-                i++;
-            }
-            document.getElementsByClassName("contents-container")[0].innerHTML += HTMLcontent;
-        }
-    };
-    xhttp.open("GET", "data/data.json", true);
-    xhttp.send();
-}
+// function loadBlogs() {
+//     var xhttp = new XMLHttpRequest();
+//     xhttp.onreadystatechange = function() {
+//         if (this.readyState == 4 && this.status == 200) {
+//             var dataObj = JSON.parse(this.responseText);
+//             var i = 0;
+//             titles = dataObj["Title"];
+//             articles = dataObj["Article"];
+//             hash = dataObj['Hash'];
+//             HTMLcontent = "";
+//             while (typeof titles[i] !== "undefined") {
+//                 HTMLcontent += generateContent(titles[i], articles[i], hash[i])
+//                 i++;
+//             }
+//             document.getElementsByClassName("contents-container")[0].innerHTML += HTMLcontent;
+//         }
+//     };
+//     xhttp.open("GET", "data/data.json", true);
+//     xhttp.send();
+// }
 
 function loadPost(q) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var dataObj = JSON.parse(this.responseText);
-            titles = dataObj["Title"];
-            articles = dataObj["Article"];
-            hash = dataObj['Hash'];
-            i = 0;
-            while (typeof titles[i] !== "undefined") {
-                if (hash[i] == q) {
-                    break
-                }
-                i++;
-            }
-            HTMLcontent = generateContent(titles[i], articles[i], hash[i])
+            HTMLcontent = generateContent(dataObj['Title'], dataObj['Article'], q)
             document.getElementsByClassName("contents-container")[0].innerHTML = HTMLcontent;
         }
     };
-    xhttp.open("GET", "data/data.json", true);
+    xhttp.open("GET", "data/" + q + ".json", true);
     xhttp.send();
 }
 
