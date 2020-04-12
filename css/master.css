@@ -133,7 +133,7 @@ main>div>div {
 }
 
 .share-links a:hover {
-    color: darkgray;
+    color: var(--c3);
 }
 
 .about q {
@@ -163,4 +163,13 @@ a:hover {
 
 .tag {
     color: var(--c3);
+}
+
+input {
+    color: var(--c4);
+}
+
+input[type=text]:focus {
+    border-bottom: 1px solid var(--c3) !important;
+    box-shadow: 0 1px 0 0 var(--c3) !important;
 }
